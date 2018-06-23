@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- WineLocation front page-->
+<head>
+  <meta charset="utf-8">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Music World Map and Site</title>
+
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-amber.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+  <style>
+
+
+ #map {
+        height: 600px;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+    }
+            
+ul {
+        list-style-type: none;
+        align-content: center;
+        overflow: hidden;
+        background-color: none;
+        float: left;
+        vertical-align: center;
+
+    }
+        
+
+
+li a {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color:Brown;
+}
+
+.footer{
+    width: 1110px;
+    padding-top: 10px;
+    color:blanchedalmond;
+
+
+}
+
+.LocalBackgroundStyle {
+
+    background-color: orange; 
+    margin:0; 
+    padding:0;
+}
+
+
+
+
+
+* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial;
+}
+
+/* Style tab links */
+.tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+}
+
+.tablink:hover {
+    background-color: none;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 100px 20px;
+    height: 100%;
+}
+
+#Home {background-color: red;}
+#News {background-color: green;}
+#Contact {background-color: blue;}
+#About {background-color: orange;}
+#tryit {background-color: black;}
+</style>
+</head>
+<body>
+
+<button class="tablink" onclick="openPage('Home', this, 'red')">How to use the site</button>
+<button class="tablink" onclick="openPage('News', this, 'green')" >A-Team Member</button>
+<button class="tablink" onclick="openPage('Contact', this, 'blue')">Artist Descriptions</button>
+<button class="tablink" onclick="openPage('About', this, 'orange')" id="defaultOpen">Artists by location</button>
+
+
+<div id="Home" class="tabcontent">
+ 
+</div>
+
+<div id="News" class="tabcontent">
+        <div class="row" style="margin:0; padding:0;">
+                <div class="col-sm-1 col-md-2 col-lg-2">
+                
+                </div>
+                <div class="col-sm-11 col-md-10 col-lg-10"> 
+                                <h3>This is where you look for artists by clicking on a country</h3>
+                </div>
+        </div>
+        
+        <div class="col-sm-10 col-md-10 col-lg-8">
+                        
+                
+        </div>
+        <div class="col-sm-1 col-md-1 col-lg-2 " style="padding:10px; color:white;">
+                <p>country description as roll over goes here:</p>
+
+            
+
+        
+        </div><div="col-sm-1 col-md-1 col-lg-2"></div>
+
+<div id="map2"></div>
+
+</div>
+<div id="Contact" class="tabcontent">
+    
+                
+                <h3>Nope</h3>
+                <p>Get in touch, or swing by for a cup of coffee.</p>
+                </div>
+
+<div id="About" class="tabcontent"> 
+    
+    
+        
+                    <div class="row" style="margin:0; padding:0;">
+                            <div class="col-sm-1 col-md-2 col-lg-2 LocalBackgroundStyle">
+                            
+                            </div>
+                            <div class="col-sm-11 col-md-10 col-lg-10 LocalBackgroundStyle"> 
+                                        <h3><strong>Looking for Artists:  </strong>Where They are from.</h3>                     
+                            </div>
+                    </div>
+            
+                    <div class="row" style="margin:0; padding:0;">
+                            <div class="col-sm-1 col-md-1 col-lg-2" style="">
+                                   <!-- <div id="buttons-view" style="padding-top: 0%; vertical-align: center; text-align: center;">
+                                            <ul>
+                                               <li><a href="https://placeholder.com"><img src="http://via.placeholder.com/50x50" alt="Abhiva" style="width:50px; height:50px; border:0px;"><br>Abhiva</a></li>
+                                               <li><a href="https://placeholder.com"><img src="assets/images/Gamme.jpg" alt="Gamme" style="width:50px; height:50px; border:0px;"><br>Gamme</a></li>
+                                                
+                                               <li><a href="pierre.txt"><img src="assets/images/pierre.png" alt="Pierre" style="width:50px; height:50px; border:0px;"><br>Pierre</a></li>
+                                               <li><a href="https://placeholder.com"><img src="http://via.placeholder.com/50x50" alt="Tashi" style="width:50px; height:50px; border:0px;"><br>Tashi</a></li>
+                                               <li><a href="https://placeholder.com"><img src="assets/images/MNSeal.png" alt="Minnesota" style="width:50px; height:50px; border:0px;"><br>Minnesota</a></li>
+                                           </ul>
+                                       </div>-->
+                            </div>
+                                
+                            <div class="col-sm-10 col-md-10 col-lg-8 LocalBackgroundStyle">
+                        
+                                    <div id="map"></div>
+                            </div>
+
+                            <div class="col-sm-1 col-md-1 col-lg-2 LocalBackgroundStyle" style="padding:10px">
+                                    <h3>Country Description (roll over)</h3>
+                                    <h4 id="SelectedCountry">Country text goes here (imported from API, text file, or firebase).</h4>
+
+                                    
+        
+                            
+                            </div>
+                    </div>
+        </div>
+
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script></script>
+        <script src="./assets/javascripts/countryData.js" type="text/javascript"></script>
+<script>
+    console.log(countryData)
+    function openPage(pageName,elmnt,color) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+    }
+    document.getElementById(pageName).style.display = "block";
+    elmnt.style.backgroundColor = color;
+
+}
+
+function initMap() {
+                              // The location of Uluru (Pierre)
+
+                             // var uluru = [
+                              //      pierre {lat:46.932008, lng:2.625380},
+                              //      abhinav{lat:23.546223, lng:78.356123},
+                               //     Tashi {lat: 44.595297 , lng: -92.814127 },
+                              //      Gamme { lat:31.760830, lng: 88.246217},
+                               //     Minn {lat: 44.0333 , lng: -93.3153}
+                             // ]
+                              var   pierre =    {lat:46.932008,     lng:2.625380};
+                                    //abhinav=    {lat:23.546223,     lng:78.356123};
+                                   // tashi =     {lat: 44.595297 ,   lng: -92.814127};
+                                   /// gamme =     {lat:9.123882,     lng: 39.158560};
+                                    //minn =      {lat: 48.0333 ,     lng: -98.3153};
+
+                              
+                              // The map, centered at Uluru
+                              var map = new google.maps.Map(
+                                  document.getElementById('map'), {zoom: 1.75, center: pierre});
+                              // The marker, positioned at Uluru
+                              for (var i = 0; i < countryData.length; i++) {
+                                  new google.maps.Marker({position: {lat: +countryData[i].lat, lng: +countryData[i].lng}, map: map})
+                              }
+
+                             // var marker = new google.maps.Marker({position: pierre, map: map});
+                             // var marker = new google.maps.Marker({position: abhinav, map: map});
+                             // var marker = new google.maps.Marker({position: tashi, map: map});
+                              //var marker = new google.maps.Marker({position: gamme, map: map});
+                             // var marker = new google.maps.Marker({position: minn, map: map});
+
+                              //var map2 = new google.maps.Map(
+                                  //document.getElementById('map2'), {zoom: 2, center: pierre}
+                                  
+                              //);
+ } 
+
+                 function initMap2() {
+                              // The location of Uluru (Pierre)
+
+                             // var uluru = [
+                                       // pierre {lat:46.932008, lng:2.625380},
+                              //      abhinav{lat:23.546223, lng:78.356123},
+                               //     Tashi {lat: 44.595297 , lng: -92.814127 },
+                              //      Gamme { lat:31.760830, lng: 88.246217},
+                               //     Minn {lat: 44.0333 , lng: -93.3153}
+                                //]
+                              var   pierre =    {lat:46.932008,     lng:2.625380};
+                                    //abhinav=    {lat:23.546223,     lng:78.356123};
+                                    //tashi =     {lat: 44.595297 ,   lng: -92.814127};
+                                   //gamme =     {lat:9.123882,     lng: 39.158560};
+                                   //minn =      {lat: 48.0333 ,     lng: -98.3153};
+
+                              
+                              // The map, centered at Uluru
+                              var map = new google.maps.Map(
+                                  document.getElementById('map2'), {zoom: 5, center: pierre});
+                              // The marker, positioned at Uluru
+                              var marker2 = new google.maps.Marker({position: pierre, map2: map});
+                              //var marker = new google.maps.Marker({position: abhinav, map: map});
+                              //var marker = new google.maps.Marker({position: tashi, map: map});
+                             // var marker = new google.maps.Marker({position: gamme, map: map});
+                              //var marker = new google.maps.Marker({position: minn, map: map});
+                 }
+        // script load buttons
+    $(document).ready(function() {
+        // initMap2()
+
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+
+ // script loads the map in the id #map-view and position it as a word map.
+             // Initialize and add the map
+             
+    })
+</script>
+ <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfHquEEPHJDwuOWeK3pgkCpWAk2Q40p9E&callback=initMap"></script>
+
+     
+</body>
+</html>
