@@ -1,7 +1,11 @@
 html,body,h1,h2,h3,h4,h5 {
     font-family: "Raleway", sans-serif
-
+    
 }
+body {
+    background-color: gray;
+}
+
 #map {
     height: 600px;
     /* The height is 400 pixels */
@@ -54,6 +58,7 @@ li a:hover {
 
 * {
     box-sizing: border-box
+    
 }
 
 /* Set height of body and the document to 100% */
@@ -88,12 +93,12 @@ html {
 .tabcontent {
     color: white;
     display: none;
-    padding: 100px 20px;
+    padding: 10px 20px;
     height: 100%;
 }
 
 #Home {
-    background-color: red;
+    background-color: gray;
 }
 
 #News {
