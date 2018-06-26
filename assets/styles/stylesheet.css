@@ -1,0 +1,113 @@
+html,body,h1,h2,h3,h4,h5 {
+    font-family: "Raleway", sans-serif
+
+}
+#map {
+    height: 600px;
+    /* The height is 400 pixels */
+    width: 100%;
+    /* The width is the width of the web page */
+    padding: 0px;
+}
+
+.w3-bar {
+    padding: 10px;
+}
+
+#menuList {
+    padding: 53px;
+}
+
+ul {
+    list-style-type: none;
+    align-content: center;
+    overflow: hidden;
+    background-color: none;
+    float: right;
+    vertical-align: center;
+
+}
+
+li a {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: Brown;
+}
+
+.footer {
+    width: 1110px;
+    padding-top: 10px;
+    color: blanchedalmond;
+}
+
+.LocalBackgroundStyle {
+
+    background-color: gray;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box
+}
+
+/* Set height of body and the document to 100% */
+
+/* body,
+html {
+    height: 100%;
+    margin: 0px;
+    font-family: Arial;
+} */
+
+/* Style tab links */
+
+.tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+}
+
+.tablink:hover {
+    background-color: none;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 100px 20px;
+    height: 100%;
+}
+
+#Home {
+    background-color: red;
+}
+
+#News {
+    background-color: green;
+}
+
+#Contact {
+    background-color: blue;
+}
+
+#About {
+    background-color: gray;
+}
+
+#tryit {
+    background-color: black;
+}
