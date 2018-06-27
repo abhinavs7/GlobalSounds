@@ -111,3 +111,9 @@ html {
 #tryit {
     background-color: black;
 }
+.artistlist{
+    background-color: white;
+    font-family: "Raleway", sans-serif;
+    font-size: large;
+    font-weight:bold;
+}
