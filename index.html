@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/styles/stylesheet.css">
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+
 </head>
 
 <body>
@@ -67,90 +69,45 @@
     </div>
 
     <div id="About" class="tabcontent">
-        <div class="row" style="margin:60px; padding:0;">
-            <div class="col-sm-1 col-md-2 col-lg-2 LocalBackgroundStyle"></div>
-            <div class="col-sm-11 col-md-10 col-lg-10 LocalBackgroundStyle">
-                <h3>
-                    <strong>Looking for Artists: </strong>Where They are from.</h3>
-            </div>
+        <div class="row justify-content-md-center" style="margin:20px; padding:0;">
+                <div class="w3-main col-md-8" style="margin-left:0px;margin-top:43px;">
+                        <h1>Search for a Country or Select in Map</h1>
+                        <form id="search-form">
+                            <input type="text" id="query" value="" class="form-control" placeholder="Type a Country Name"/>
+                            <input type="submit" id="search" class="btn btn-primary" value="Search" style="margin-left:0px;margin-top:10px;"/>
+                        </form>
+                        
+        
+                </div>
+
         </div>
         <!-- !PAGE CONTENT! -->
-        <div class="w3-main" style="margin-left:0px;margin-top:43px;">
-            <div class="w3-row-padding w3-margin-bottom">
-                <div class="w3-quarter">
-                    <div class="w3-container w3-red w3-padding-16">
-                        <div class="w3-left">
-                            <i class="fa fa-users w3-xxxlarge"></i>
-                        </div>
-                        <div class="w3-right">
-                            <h3>Name</h3>
-                        </div>
-                        <div class="w3-clear"></div>
-                        <h4>Artis1</h4>
-                    </div>
-                </div>
-                <div class="w3-quarter">
-                    <div class="w3-container w3-blue w3-padding-16">
-                        <div class="w3-left">
-                            <i class="fa fa-users w3-xxxlarge"></i>
-                        </div>
-                        <div class="w3-right">
-                            <h3>Name</h3>
-                        </div>
-                        <div class="w3-clear"></div>
-                        <h4>Artist2</h4>
-                    </div>
-                </div>
-                <div class="w3-quarter">
-                    <div class="w3-container w3-teal w3-padding-16">
-                        <div class="w3-left">
-                            <i class="fa fa-users w3-xxxlarge"></i>
-                        </div>
-                        <div class="w3-right">
-                            <h3>Name</h3>
-                        </div>
-                        <div class="w3-clear"></div>
-                        <h4>Artist3</h4>
-                    </div>
-                </div>
-                <div class="w3-quarter">
-                    <div class="w3-container w3-orange w3-text-white w3-padding-16">
-                        <div class="w3-left">
-                            <i class="fa fa-users w3-xxxlarge"></i>
-                        </div>
-                        <div class="w3-right">
-                            <h3>Name</h3>
-                        </div>
-                        <div class="w3-clear"></div>
-                        <h4>Artist4</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 
         <hr>
         <div class="row" style="margin:0; padding:0;">
-            <div class="col-sm-1 col-md-1 col-lg-2" style="">
-                <!-- <div id="buttons-view" style="padding-top: 0%; vertical-align: center; text-align: center;">
-                        <ul>
-                            <li><a href="https://placeholder.com"><img src="http://via.placeholder.com/50x50" alt="Abhiva" style="width:50px; height:50px; border:0px;"><br>Abhiva</a></li>
-                            <li><a href="https://placeholder.com"><img src="assets/images/Gamme.jpg" alt="Gamme" style="width:50px; height:50px; border:0px;"><br>Gamme</a></li>
-                                                
-                            <li><a href="pierre.txt"><img src="assets/images/pierre.png" alt="Pierre" style="width:50px; height:50px; border:0px;"><br>Pierre</a></li>
-                            <li><a href="https://placeholder.com"><img src="http://via.placeholder.com/50x50" alt="Tashi" style="width:50px; height:50px; border:0px;"><br>Tashi</a></li>
-                            <li><a href="https://placeholder.com"><img src="assets/images/MNSeal.png" alt="Minnesota" style="width:50px; height:50px; border:0px;"><br>Minnesota</a></li>
-                        </ul>
-                    /div>-->
-            </div>
+
 
             <div class="col-sm-10" style="margin-left:0px;margin-top:0px">
-
+                    <div class="col-sm-1 col-md-1 col-lg-2" style="">
+                            <!-- <div id="buttons-view" style="padding-top: 0%; vertical-align: center; text-align: center;">
+                                    <ul>
+                                        <li><a href="https://placeholder.com"><img src="http://via.placeholder.com/50x50" alt="Abhiva" style="width:50px; height:50px; border:0px;"><br>Abhiva</a></li>
+                                        <li><a href="https://placeholder.com"><img src="assets/images/Gamme.jpg" alt="Gamme" style="width:50px; height:50px; border:0px;"><br>Gamme</a></li>
+                                                            
+                                        <li><a href="pierre.txt"><img src="assets/images/pierre.png" alt="Pierre" style="width:50px; height:50px; border:0px;"><br>Pierre</a></li>
+                                        <li><a href="https://placeholder.com"><img src="http://via.placeholder.com/50x50" alt="Tashi" style="width:50px; height:50px; border:0px;"><br>Tashi</a></li>
+                                        <li><a href="https://placeholder.com"><img src="assets/images/MNSeal.png" alt="Minnesota" style="width:50px; height:50px; border:0px;"><br>Minnesota</a></li>
+                                    </ul>
+                                /div>-->
+                        </div>
                 <h5>Regions</h5>
                 <!--<img src="/w3images/region.jpg" style="width:100%" alt="Google Regional Map">-->
 
                 <div id="map" style="width:100%">
                 </div>
             </div>
+            <div class="col-sm-02" style="margin-left:0px;margin-top:0px" id="results"></div>
             <hr>
             <div class="w3-panel" style="margin-left:0px;margin-top:10px">
                 <div class="w3-row-padding" style="margin:0 -16px">
@@ -328,6 +285,9 @@
             // Initialize and add the map
         })
     </script>
+     <script type="text/javascript" src="script.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ 
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfHquEEPHJDwuOWeK3pgkCpWAk2Q40p9E&callback=initMap"></script>
     </div>
 </body>
