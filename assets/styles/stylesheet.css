@@ -80,40 +80,31 @@ html {
 }
 
 .tablink:hover {
-    background-color: none;
+    background-color: orangered;
 }
 
 /* Style the tab content (and add height:100% for full page content) */
 
 .tabcontent {
-    color: white;
+    color: black;
     display: none;
     padding: 100px 20px;
     height: 100%;
 }
 
-#Home {
-    background-color: red;
-}
-
-#News {
-    background-color: green;
-}
-
-#Contact {
-    background-color: blue;
-}
-
-#About {
-    background-color: gray;
-}
-
-#tryit {
-    background-color: black;
-}
 .artistlist{
     background-color: white;
     font-family: "Raleway", sans-serif;
     font-size: large;
     font-weight:bold;
+}
+a{
+    color:rgb(16, 16, 155);
+}
+.btn{
+    background-color: rgb(70, 168, 254);
+}
+.bio {
+    word-wrap: break-word;
+    overflow-wrap:normal;
 }
