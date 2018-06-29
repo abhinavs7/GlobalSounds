@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="googleMap1" style="width:800px;height:600px;"></div>
+<br>
+<div id="googleMap1text"></div>
+<br><br>
+
+<div id="googleMap2" style="width:400px;height:300px;"></div>
+<br>
+<div id="googleMap2text"></div>
+<br><br>
+
+<div id="googleMap3" style="width:200px;height:150px;"></div>
+<br>
+<div id="googleMap3text"></div>
+<br><br>
+
+<div id="googleMap4" style="width:250px;height:175px;"></div>
+<br>
+<div id="googleMap4text"></div>
+<br>
+
+<script>
+    //lat: 46.932008, lng: 2.625380
+
+// Map OPTION 1
+ //var  myCountries = [
+// { 
+ //   "CountryCode": "MN", 
+//    "lat": 45,
+ //   "lng": -93.36,
+//    "countryName": "Minnesota", 
+ //   "countryDescription": "Minneapolis", 
+//    "countryFlagPicture": "",
+ //   "divetext": " This is where the text for option 1 goes.  Map1 is above. Please, place this divetext1 where you need too.  This is the map where countries should go."
+//},
+
+//{ 
+//    "CountryCode": "WI", 
+  //  "lat": 44.800,
+    //"lng": -91.50,
+//    "countryName": "Wisconsin", 
+  //  "countryDescription": "Eau Claire", 
+    //"countryFlagPicture": "",
+  //  "divetext": " This is where the text for option 1 goes.  Map1 is above. Please, place this divetext1where you need too.  This is the map where countries should go."
+//},
+
+//{ 
+   // "CountryCode": "MN", 
+   // "lat": 44.800,
+   // "lng": -91.50,
+  //  "countryName": "Minnesota", 
+   // "countryDescription": "Duluth", 
+    //"countryFlagPicture": "",
+    //"divetext": " This is where the text for option 1 goes.  Map1 is above. Please, place this divetext11where you need too.  This is the map where countries should go."
+//},
+
+ //];
+ 
+ 
+ 
+//var myLatlng1 = {lat: myCountries[i].lat, lng: myCountries[i].lng};
+function initMap() {
+    
+    var myLatLng1 = {lat: 47, lng: -92}; // replace myLatLng1 variable by 1 array or 1 object of array.
+    var myLatLng2 = {lat: 60, lng: 10}; 
+    var myLatLng3 = {lat: -60, lng:-10};
+    var myLatLng4 = {lat: 45, lng:-93};
+
+
+  var divetext1= "This is where the text for option 1 goes.  Map1 is above. Please, place this divetext1 where you need too.  This is the map where countries should go.";  
+  var divetext2= "This is where the text for option 2 goes.  Map2 is above. Please, place this divetext2 where you need too.  This is the map where I-team members should go.";
+  var divetext3= "This is where the text for option 3 goes.  Map3 is above. Please, place this divetext3 where you need too. This is the map where artist members should go.";  
+  var divetext4= "This is where the text for option 4 goes.  Map4 is above. Please, place this divetext4 where you need too. This is the map where project description should go.";
+
+// for loop or inloop should go here for each case.    As I don't know how the array or database looks like, I do not know if we have multiple embedded loops
+ var mapOptions1 = {
+    center: new google.maps.LatLng(46.932008,2.625380),
+    zoom:2,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+   
+  };
+  var marker = new google.maps.Marker({
+    position: myLatLng1,
+    title: 'bye bye',
+    
+  });
+  document.getElementById("googleMap1text").innerHTML=divetext1.toString();
+  var map1 = new google.maps.Map(document.getElementById("googleMap1"),mapOptions1);
+  marker.setMap(map1);
+
+
+
+// Map Option 2
+
+var mapOptions2 = {
+    center: new google.maps.LatLng(50.932008,7.625380),
+    zoom:3,
+   mapTypeId: google.maps.MapTypeId.SATELLITE
+   };
+   var marker2 = new google.maps.Marker({
+    position: myLatLng2,
+    title: 'bye bye!'
+    
+  });
+  document.getElementById("googleMap2text").innerHTML=divetext2.toString();
+  var map2 = new google.maps.Map(document.getElementById("googleMap2"),mapOptions2);
+  marker2.setMap(map2);
+
+
+
+// var mapOptions3
+
+var mapOptions3 = {
+  center: new google.maps.LatLng(-46.932008,-2.625380),
+  zoom:1,
+   mapTypeId: google.maps.MapTypeId.HYBRID
+  };
+
+var marker3 = new google.maps.Marker({
+    position: myLatLng3,
+    title: 'bye bye!'
+  });
+  
+  document.getElementById("googleMap3text").innerHTML=divetext3.toString();
+  var map3 = new google.maps.Map(document.getElementById("googleMap3"),mapOptions3);
+  marker3.setMap(map3);
+
+
+
+// var mapOptions4
+
+  var mapOptions4 = {
+      center: new google.maps.LatLng(45.,-93),
+      zoom:8,
+      mapTypeId: google.maps.MapTypeId.TERRAIN
+ };
+
+ var marker4 = new google.maps.Marker({
+    position: myLatLng4,
+    title: 'zut!'
+  });
+  document.getElementById("googleMap4text").innerHTML=divetext4.toString();
+  var map4 = new google.maps.Map(document.getElementById("googleMap4"),mapOptions4);
+  marker4.setMap(map4); 
+  // var map4 = new google.maps.Map(document.getElementById("googleMap4"),mapOptions4);
+          
+
+}
+
+
+</script>
+<script src="./assets/javascripts/20countryData.js" type="text/javascript"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfHquEEPHJDwuOWeK3pgkCpWAk2Q40p9E&callback=initMap"></script>
+    
+<!--
+To use this code on your website, get a free API key from Google.
+Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+-->
+
+</body>
+</html>
