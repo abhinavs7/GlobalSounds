@@ -1,3 +1,18 @@
+// for panels
+function openPage(pageName, elmnt, color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
+
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyBk2E-sl-lDdc5sBCNvLn8p1zBVcELoJ7I",
@@ -11,6 +26,7 @@ firebase.initializeApp(config);
 var database = firebase.database();
 //hide the Artist Description tab on page load
 $("#btn_ArtistInfo").hide();
+$("#defaultOpen").hide();
 var music = {
     searchCountry: "",
     searchArtist: "",
@@ -21,24 +37,26 @@ var music = {
         database.ref("Countries").orderByKey().equalTo(country).on("value", function (childSnapshot) {
 
             console.log(childSnapshot.val());
-            console.log(childSnapshot.key);
             searchResults = childSnapshot.val();
             searchKey = childSnapshot.key;
             music.renderSearchResults(searchResults, country);
         })
     },
 
+    
+
     renderSearchResults: function (searchResults, country) {
         $("#results").html("");
         var artistData = searchResults[country];
         console.log(searchResults[country]);
         var url = "artistInfo.html?artist=";
+        $("#results").attr("style:border= 'white solid 1px'");
         $("#results").append("<h2>Artists: </h2>");
-        $("#results").append("<div class='artists'><p><a class='artistlist' href='#'>♫ " + artistData.Artist1 + "</a></p></div>");
-        $("#results").append("<div class='artists'><p><a class='artistlist' href='#'>♫ " + artistData.Artist2 + "</a></p></div>");
-        $("#results").append("<div class='artists'><p><a class='artistlist' href='#'>♫ " + artistData.Artist3 + "</a></p></div>");
-        $("#results").append("<div class='artists'><p><a class='artistlist' href='#'>♫ " + artistData.Artist4 + "</a></p></div>");
-        $("#results").append("<div class='artists'><p><a class='artistlist' href='#'>♫ " + artistData.Artist5 + "</a></p></div>");
+        $("#results").append("<div class='artists'><button class='al'><a class='artistlist' href='#'>♫ " + artistData.Artist1 + "</a></button></div>");
+        $("#results").append("<div class='artists'><button class='al'><a class='artistlist' href='#'>♫ " + artistData.Artist2 + "</a></button></div>");
+        $("#results").append("<div class='artists'><button class='al'><a class='artistlist' href='#'>♫ " + artistData.Artist3 + "</a></button></div>");
+        $("#results").append("<div class='artists'><button class='al'><a class='artistlist' href='#'>♫ " + artistData.Artist4 + "</a></button></div>");
+        $("#results").append("<div class='artists'><button class='al'><a class='artistlist' href='#'>♫ " + artistData.Artist5 + "</a></button></div>");
 
     }
 
@@ -51,7 +69,6 @@ document.getElementById('search-form').addEventListener('submit', function (e) {
 
         music.search(music.searchCountry);
         $("#query").val("");    
-        
     }
    
 }, false);
@@ -59,6 +76,7 @@ document.getElementById('search-form').addEventListener('submit', function (e) {
 //Clicking on artist search results - show Artist Info tab
 $("#results").on('click','.artistlist',function(event){
     $("#btn_ArtistInfo").show();
+    $("#defaultOpen").show();
     var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
             for (i = 0; i < tabcontent.length; i++) {
@@ -70,7 +88,7 @@ $("#results").on('click','.artistlist',function(event){
             }
             //change highlight color of tab/button
             document.getElementById("ArtistInfo").style.display = "block";
-            document.getElementById("btn_ArtistInfo").style.backgroundColor = 'orange';
+            document.getElementById("btn_ArtistInfo").style.backgroundColor = '#005e52';
 
             var artist = event.target.text.substring(2);
 
@@ -93,7 +111,7 @@ $.ajax({
     var bioImg = $("<img>");
     bioImg.addClass('bioImage');
     bioImg.attr('src',artistResponse.artist.image[2]["#text"]);
-    $("#bio").append(bioImg);
+    $("#bio").prepend(bioImg);
 
     
     console.log(artistResponse);
@@ -131,11 +149,10 @@ $.ajax({
     }
   });
 
-  //API call to youtube to get top 10 videos
-var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q="
+  //API call to youtube to get top 7 videos
+var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=7&q="
   + artist + "&key=AIzaSyC3e0VoI78wamBroxN91-tKo_MvglEUAKQ";
 console.log(queryURL);
-//var videoURL = "https://www.youtube.com/watch?v=";
 var videoURL = "https://www.youtube.com/embed/";
 $.ajax({
   url: queryURL,
@@ -148,7 +165,7 @@ $.ajax({
     console.log(results);
     $("#video-results").html("");
     for (var i = 0; i < results.length; i++) {
-      var iFrame = $("<iframe id='vidIframe' width='300' height='200'>");
+      var iFrame = $("<iframe id='vidIframe' width='400' height='300'>");
 
       var videoDiv = $("<div>");
       videoDiv.addClass('video');
