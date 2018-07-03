@@ -21,28 +21,17 @@
 
 
             var searchResults;
-            console.log(country);
             database.ref("Countries").orderByKey().equalTo(country).on("value", function (childSnapshot) {
 
-                console.log(childSnapshot.val());
                 searchResults = childSnapshot.val();
+                console.log(searchResults);
+
                 searchKey = childSnapshot.key;
                 music.renderSearchResults(searchResults, country);
             })
 
-            $("#results").html("");
-            var artistData = searchResults[country];
-            // console.log(searchResults[country]);
-            var url = "artistInfo.html?artist=";
-            $("#results").append("<h2>Artists: </h2>");
-            $("#results").append("<div class='artists'><p><a class='artistlist' href='#'>♫ " + artistData.Artist1 + "</a></p></div>");
-            $("#results").append("<div class='artists'><p><a class='artistlist' href='#'>♫ " + artistData.Artist2 + "</a></p></div>");
-            $("#results").append("<div class='artists'><p><a class='artistlist' href='#'>♫ " + artistData.Artist3 + "</a></p></div>");
-            $("#results").append("<div class='artists'><p><a class='artistlist' href='#'>♫ " + artistData.Artist4 + "</a></p></div>");
-            $("#results").append("<div class='artists'><p><a class='artistlist' href='#'>♫ " + artistData.Artist5 + "</a></p></div>");
-
+            
         });
-
 
     }
 }
